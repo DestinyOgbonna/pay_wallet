@@ -110,7 +110,7 @@ class _MyTransferPageState extends State<MyTransferPage> {
                           ),
                         )
                       : Text(
-                          '${formatter.format(double.tryParse(equation))}',
+                          formatter.format(double.tryParse(equation)),
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 52.47,
