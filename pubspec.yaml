@@ -33,6 +33,7 @@ dependencies:
     sdk: flutter
   flutter_animate: ^4.2.0+1
   google_fonts: ^6.1.0
+  intl: ^0.18.1
   math_expressions: ^2.3.1
 
 dev_dependencies:

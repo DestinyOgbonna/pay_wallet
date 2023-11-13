@@ -1,6 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:pay_wallet/features/password_page.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:pay_wallet/features/widget/build_button.dart';
 
 class MyTransferPage extends StatefulWidget {
@@ -11,59 +14,147 @@ class MyTransferPage extends StatefulWidget {
 }
 
 class _MyTransferPageState extends State<MyTransferPage> {
-  String equation = "0";
+  String equation = "";
+  var formatter = NumberFormat.decimalPattern("en_US");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlue,
+      backgroundColor: const Color(0xff0D0C12),
       body: SafeArea(
           child: SizedBox(
         child: Stack(
           alignment: Alignment.center,
           children: [
-            Positioned(
-              top: 197.0,
-              // left: 143.5,
-              child: equation == '0'
-                  ? Text.rich(
-                      TextSpan(
-                        children: [
-                          TextSpan(
-                            text: equation,
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 52.47,
-                              fontFamily: 'Hanno',
-                              fontWeight: FontWeight.w400,
-                              height: 0.03,
-                            ),
-                          ),
-                          const TextSpan(
-                            text: '.00',
-                            style: TextStyle(
-                              color: Color(0xFF6D727B),
-                              fontSize: 40,
-                              fontFamily: 'Hanno',
-                              fontWeight: FontWeight.w400,
-                              height: 0.03,
-                            ),
-                          ),
-                        ],
-                      ),
-                    )
-                  : Text(
-                      equation,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 52.47,
-                        fontFamily: 'Hanno',
-                        fontWeight: FontWeight.w400,
-                        height: 0.03,
-                      ),
-                    ),
+            const Positioned(
+              top: 94,
+              left: 34,
+              child: Text(
+                'Good morning!',
+                style: TextStyle(
+                  fontFamily: 'Hanno',
+                  color: Color(0xCCF6E0D4),
+                  fontSize: 12.78,
+                  fontWeight: FontWeight.w400,
+                  height: 0.10,
+                ),
+              ),
             ),
             Positioned(
-              top: 270,
+              top: 117,
+              left: 34,
+              child: Row(
+                children: [
+                  Text(
+                    'Kinggsley',
+                    style: GoogleFonts.taiHeritagePro(
+                      color: const Color(0xFFF6E0D4),
+                      fontSize: 25,
+                      fontWeight: FontWeight.w900,
+                      height: 0.05,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Image.asset(
+                      'assets/icons/icon.png',
+                      width: 15,
+                      height: 15,
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Positioned(
+              top: 104.13,
+              right: 33.95,
+              child: Image.asset(
+                'assets/icons/womna.png',
+              ),
+            ),
+            Positioned(
+              top: 217.0,
+              // left: 143.5,
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 53.0, left: 5.0),
+                    child: Image.asset(
+                      'assets/icons/dollar.png',
+                    ),
+                  ),
+                  equation == ''
+                      ? const Text.rich(
+                          TextSpan(
+                            children: [
+                              TextSpan(
+                                text: '0',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 52.47,
+                                  fontFamily: 'Hanno',
+                                  fontWeight: FontWeight.w400,
+                                  height: 0.03,
+                                ),
+                              ),
+                              TextSpan(
+                                text: '.00',
+                                style: TextStyle(
+                                  color: Color(0xFF6D727B),
+                                  fontSize: 40,
+                                  fontFamily: 'Hanno',
+                                  fontWeight: FontWeight.w400,
+                                  height: 0.03,
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      : Text(
+                          '${formatter.format(double.tryParse(equation))}',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 52.47,
+                            fontFamily: 'Hanno',
+                            fontWeight: FontWeight.w400,
+                            height: 0.03,
+                          ),
+                        ),
+                ],
+              ),
+            ),
+            const Positioned(
+              top: 278.0,
+              child: Text.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'Available: ',
+                      style: TextStyle(
+                        color: Color(0xFF6D727B),
+                        fontSize: 13,
+                        fontFamily: 'Hanno',
+                        fontWeight: FontWeight.w400,
+                        height: 0.12,
+                        letterSpacing: 0.41,
+                      ),
+                    ),
+                    TextSpan(
+                      text: '\$203.74',
+                      style: TextStyle(
+                        color: Color(0xFFF6E0D4),
+                        fontSize: 13,
+                        fontFamily: 'Hanno',
+                        fontWeight: FontWeight.w400,
+                        height: 0.12,
+                        letterSpacing: 0.41,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Positioned(
+              top: 315,
               bottom: 40,
               child: Container(
                 width: 401,
@@ -102,17 +193,24 @@ class _MyTransferPageState extends State<MyTransferPage> {
               bottom: 11,
               child: InkWell(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const PasswordPage()));
+                  log(equation);
                 },
                 child: Container(
-                    padding: const EdgeInsets.all(15.17),
-                    child: const Text(
-                      'Click to view the password mode',
-                      style: TextStyle(color: Colors.white, fontSize: 20),
-                    )),
+                  width: 61,
+                  height: 61,
+                  padding: const EdgeInsets.all(15.17),
+                  decoration: ShapeDecoration(
+                    color: const Color(0xFFF6E0D4),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.34),
+                    ),
+                  ),
+                  child: Image.asset(
+                    'assets/icons/arrow.png',
+                    width: 30,
+                    height: 30,
+                  ),
+                ),
               ),
             ),
           ]
@@ -133,9 +231,6 @@ class _MyTransferPageState extends State<MyTransferPage> {
     setState(() {
       if (buttonText == "⌫") {
         equation = equation.substring(0, equation.length - 1);
-        if (equation == "") {
-          equation = "0";
-        }
       } else {
         if (equation == "0") {
           equation = buttonText;
