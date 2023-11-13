@@ -1,0 +1,4 @@
+#Mon Nov 13 12:43:04 WAT 2023
+base.0=C\:\\Users\\pc\\Desktop\\Myprojects\\pay_wallet\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
