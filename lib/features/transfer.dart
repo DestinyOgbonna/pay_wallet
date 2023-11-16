@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:intl/intl.dart';
 import 'package:pay_wallet/features/password_page.dart';
@@ -18,55 +19,111 @@ class _MyTransferPageState extends State<MyTransferPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 62, 179, 238),
+      backgroundColor: const Color(0xff0D0C12),
       body: SafeArea(
           child: SizedBox(
         child: Stack(
           alignment: Alignment.center,
           children: [
+            const Positioned(
+              top: 94,
+              left: 34,
+              child: Text(
+                'Good morning!',
+                style: TextStyle(
+                  fontFamily: 'Hanno',
+                  color: Color(0xCCF6E0D4),
+                  fontSize: 12.78,
+                  fontWeight: FontWeight.w400,
+                  height: 0.10,
+                ),
+              ),
+            ),
+            Positioned(
+              top: 106,
+              left: 34,
+              child: Row(
+                children: [
+                  Text(
+                    'Kinggsley',
+                    style: GoogleFonts.taiHeritagePro(
+                      color: const Color(0xFFF6E0D4),
+                      fontSize: 25,
+                      fontWeight: FontWeight.w900,
+                      height: 0.05,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Image.asset(
+                      'assets/icons/icon.png',
+                      width: 15,
+                      height: 15,
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Positioned(
+              top: 104.13,
+              right: 33.95,
+              child: Image.asset(
+                'assets/icons/womna.png',
+              ),
+            ),
             Positioned(
               top: 217.0,
               // left: 143.5,
-              child: equation == ''
-                  ? const Text.rich(
-                      TextSpan(
-                        children: [
-                          TextSpan(
-                            text: '0',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 52.47,
-                              fontFamily: 'Hanno',
-                              fontWeight: FontWeight.w400,
-                              height: 0.03,
-                            ),
-                          ),
-                          TextSpan(
-                            text: '.00',
-                            style: TextStyle(
-                              color: Color(0xFF6D727B),
-                              fontSize: 40,
-                              fontFamily: 'Hanno',
-                              fontWeight: FontWeight.w400,
-                              height: 0.03,
-                            ),
-                          ),
-                        ],
-                      ),
-                    )
-                  : Text(
-                      formatter.format(double.tryParse(equation)),
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 52.47,
-                        fontFamily: 'Hanno',
-                        fontWeight: FontWeight.w400,
-                        height: 0.03,
-                      ),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 53.0, left: 5.0),
+                    child: Image.asset(
+                      'assets/icons/dollar.png',
                     ),
+                  ),
+                  equation == ''
+                      ? const Text.rich(
+                          TextSpan(
+                            children: [
+                              TextSpan(
+                                text: '0',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 52.47,
+                                  fontFamily: 'Hanno',
+                                  fontWeight: FontWeight.w400,
+                                  height: 0.03,
+                                ),
+                              ),
+                              TextSpan(
+                                text: '.00',
+                                style: TextStyle(
+                                  color: Color(0xFF6D727B),
+                                  fontSize: 40,
+                                  fontFamily: 'Hanno',
+                                  fontWeight: FontWeight.w400,
+                                  height: 0.03,
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      : Text(
+                          formatter.format(double.tryParse(equation)),
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 52.47,
+                            fontFamily: 'Hanno',
+                            fontWeight: FontWeight.w400,
+                            height: 0.03,
+                          ),
+                        )
+                ],
+              ),
             ),
             Positioned(
-              top: 315,
+              top: 255,
               bottom: 40,
               child: Container(
                 width: 401,
@@ -111,11 +168,21 @@ class _MyTransferPageState extends State<MyTransferPage> {
                           builder: (context) => const PasswordPage()));
                 },
                 child: Container(
-                    padding: const EdgeInsets.all(15.17),
-                    child: const Text(
-                      'Click to view password mode',
-                      style: TextStyle(color: Colors.white, fontSize: 20),
-                    )),
+                  width: 61,
+                  height: 61,
+                  padding: const EdgeInsets.all(15.17),
+                  decoration: ShapeDecoration(
+                    color: const Color(0xFFF6E0D4),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.34),
+                    ),
+                  ),
+                  child: Image.asset(
+                    'assets/icons/arrow.png',
+                    width: 30,
+                    height: 30,
+                  ),
+                ),
               ),
             ),
           ]
